@@ -4,9 +4,15 @@ from src.amazon.scraper import scrape_product
 
 load_dotenv()
 
-asins = os.getenv("ASINS").split(",")
-
-def save_to_csv():
+def save_amazon_to_csv():
+    print("========AMAZON========")
+    
+    raw_asins = os.getenv("ASINS")
+    if not raw_asins:
+        return print("ASINS no definidos")
+    
+    asins = raw_asins.split(",")
+    
     os.makedirs("./data", exist_ok=True)
     
     with open("./data/amazon-products.csv", "w", newline="", encoding="utf-8") as f:
