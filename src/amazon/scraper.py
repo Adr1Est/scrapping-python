@@ -1,13 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
+from src.utils.headers import headers
 
 def scrape_product(asin):
     url = f"https://www.amazon.es/dp/{asin}"
-    
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
-        "Accept-Language": "es-ES,es;q=0.9",
-    }
     
     response = requests.get(url, headers=headers)
       
