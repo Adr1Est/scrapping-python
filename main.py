@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 import os, csv
-from src.amazon_product_scrapper import amazon_product_scrapper
+from src.amazon.amazon_product_scrapper import amazon_product_scrapper
 
 load_dotenv()
 
