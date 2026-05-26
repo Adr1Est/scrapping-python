@@ -14,5 +14,3 @@ with open("products.csv", "w", newline="", encoding="utf-8") as f:
     for asin in asins:
         product = amazon_product_scrapper(asin)
         writer.writerow([asin, product["title"], product["price"], product["availability"]])
-    
-
