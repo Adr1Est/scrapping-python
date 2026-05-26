@@ -35,10 +35,10 @@ def scrape_product(code):
         print(product_price["value"])
         
         return {
-            "title": product_title,
-            "platform": product_info["Plataforma:"],
-            "edition": product_info["Edición:"],
-            "release_data": product_info["Lanzamiento:"] if product_info["Lanzamiento:"] else "Desconocida",
+            "title": product_title if product_title else "Desconocido",
+            "platform": product_info.get("Plataforma:", "Desconocido"),
+            "edition": product_info.get("Edición:", "Desconocido"),
+            "release_data": product_info.get("Lanzamiento:", "Desconocido"),
             "price": product_price["value"]
         }
     else:
