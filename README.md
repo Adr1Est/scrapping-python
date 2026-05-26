@@ -30,11 +30,13 @@ deactivate
 ## Ejecutar
 
 ```bash
-# 1. Crear archivo .env en la raiz del proyecto con la siguiente variable de entorno
+# 1. Crear archivo .env en la raiz del proyecto con las siguientes variables de entorno
 ASINS=
+GAME_PRODUCTS=
 
-# 2. Escribir separados con "," y sin espacios los ASIN de cada producto
+# 2. Escribir separados con "," y sin espacios los ASIN y CÓDIGOS de cada producto
 ASINS=ASIN1,ASIN2,ASIN3,...
+GAME_PRODUCTS=CODE1,CODE2,CODE3,...
 
 python main.py
 ```

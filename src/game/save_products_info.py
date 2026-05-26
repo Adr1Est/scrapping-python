@@ -4,10 +4,16 @@ import os, csv
 
 load_dotenv()
 
-game_codes = os.getenv("GAME_PRODUCTS").split(",")
-
 def save_game_to_csv():
+    raw_game_codes = os.getenv("GAME_PRODUCTS")
+    if not raw_game_codes:
+        return print("Sin GAME_CODES")
+    
+    game_codes = raw_game_codes.split(",")
+    
     os.makedirs("./data", exist_ok=True)
+    
+    print("========GAME========")
     
     with open("./data/game-products.csv", "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
