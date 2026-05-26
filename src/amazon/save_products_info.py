@@ -1,0 +1,19 @@
+from dotenv import load_dotenv
+import os, csv
+from src.amazon.scraper import scrape_product
+
+load_dotenv()
+
+asins = os.getenv("ASINS").split(",")
+
+def save_to_csv():
+    os.makedirs("./data", exist_ok=True)
+    
+    with open("./data/amazon-products.csv", "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        
+        writer.writerow(["ASIN", "Título", "Precio", "Disponibilidad"])
+        
+        for asin in asins:
+            product = scrape_product(asin)
+            writer.writerow([asin, product["title"], product["price"], product["availability"]])

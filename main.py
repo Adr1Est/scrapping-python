@@ -1,16 +1,7 @@
-from dotenv import load_dotenv
-import os, csv
-from src.amazon.amazon_product_scrapper import amazon_product_scrapper
+from src.amazon.save_products_info import save_to_csv
 
-load_dotenv()
-
-asins = os.getenv("ASINS").split(",")
-
-with open("products.csv", "w", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
+def main():
+    save_to_csv()
     
-    writer.writerow(["ASIN", "Título", "Precio", "Disponibilidad"])
-    
-    for asin in asins:
-        product = amazon_product_scrapper(asin)
-        writer.writerow([asin, product["title"], product["price"], product["availability"]])
+if __name__ == "__main__":
+    main()

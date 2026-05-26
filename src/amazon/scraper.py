@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def amazon_product_scrapper(asin):
+def scrape_product(asin):
     url = f"https://www.amazon.es/dp/{asin}"
     
     headers = {
