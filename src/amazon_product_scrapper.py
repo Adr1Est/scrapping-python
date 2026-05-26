@@ -22,6 +22,11 @@ def amazon_product_scrapper(asin):
         availability  = productAvailable.get_text(strip=True) if productAvailable else "No encontrado"
         print(title)
         print(f"{price} -  {availability}")
+        return  {
+            "title": title,
+            "price": price,
+            "availability": availability
+        }
     else:
         print("Petición fallida -> ", response.status_code)(url, headers=headers)
     
