@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from src.game.scraper import scrape_product
+from src.scrapers.game.scraper import scrape_product
 import os, csv
 
 load_dotenv()

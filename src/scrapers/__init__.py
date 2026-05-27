@@ -1,0 +1,2 @@
+from src.scrapers.amazon.save_products_info import save_amazon_to_csv
+from src.scrapers.game.save_products_info import save_game_to_csv
