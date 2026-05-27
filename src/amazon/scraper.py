@@ -1,11 +1,10 @@
-import requests
 from bs4 import BeautifulSoup
-from src.utils.headers import headers
+from src.lib.http_client import get
 
 def scrape_product(asin):
     url = f"https://www.amazon.es/dp/{asin}"
     
-    response = requests.get(url, headers=headers)
+    response = get(url)
       
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -24,5 +23,5 @@ def scrape_product(asin):
             "availability": availability
         }
     else:
-        print("Petición fallida -> ", response.status_code)(url, headers=headers)
+        print("Petición fallida -> ", response.status_code)
     
