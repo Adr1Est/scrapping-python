@@ -1,8 +1,6 @@
-# Python - Web Scrapping
+# Python - Web Scraping
 
-Extrae nombre, precio y disponibilidad de productos de amazon y los guarda en csv.
-
-- Versión de Python utilizada: 3.14.0a7
+Proyecto para extraer **información** de productos de diferentes comercios y guardarla en un archivo `.csv`.
 
 ## Dependencias utilizadas
 
@@ -12,31 +10,59 @@ Extrae nombre, precio y disponibilidad de productos de amazon y los guarda en cs
 - beautifulsoup4
 - python-dotenv
 
+> `os` y `csv` pertenecen a la librería estándar de Python, por lo que no requieren instalación.
+
 ## Instalación
 
+### 1. Crear y activar el entorno virtual
+
 ```bash
-# 1- Crear entorno virtual y activarlo
 python -m venv venv
-# En Windows (Bash)
+```
+
+**Windows (Bash)**
+
+```bash
 source venv/Scripts/activate
+```
 
-# 2- Instalar las dependencias del proyecto
+### 2. Instalar dependencias
+
+```bash
 pip install -r requirements.txt
+```
 
-# Para salir del entorno virtual
+### 3. Salir del entorno virtual
+
+```bash
 deactivate
 ```
 
-## Ejecutar
+## Configuración
 
-```bash
-# 1. Crear archivo .env en la raiz del proyecto con las siguientes variables de entorno
+Crear un archivo `.env` en la raíz del proyecto con las siguientes variables:
+
+```env
 ASINS=
 GAME_PRODUCTS=
+```
 
-# 2. Escribir separados con "," y sin espacios los ASIN y CÓDIGOS de cada producto
-ASINS=ASIN1,ASIN2,ASIN3,...
-GAME_PRODUCTS=CODE1,CODE2,CODE3,...
+### Formato de las variables
 
+Escribir los valores separados por comas (``,`), **sin espacios**.
+
+```env
+ASINS=ASIN1,ASIN2,ASIN3
+GAME_PRODUCTS=CODE1,CODE2,CODE3
+```
+
+* `ASINS`: identificadores de productos de Amazon.
+* `GAME_PRODUCTS`: códigos asociados a cada producto.
+
+## Ejecución
+
+Ejecutar el proyecto con:
+
+```bash
 python main.py
 ```
